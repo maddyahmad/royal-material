@@ -33,10 +33,31 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     return () => subscription.unsubscribe();
   }, []);
 
-  const signIn = async (email: string, password: string) => {
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
-    return { error: error?.message || null };
+  const signIn = async (identifier: string, password: string) => {
+    const isEmail = identifier.includes("@");
+
+    const credentials = isEmail
+      ? { email: identifier, password }
+      : { phone: identifier, password };
+
+    const { data, error } =
+      await supabase.auth.signInWithPassword(credentials);
+
+    return {
+      user: data?.user || null,
+      error: error?.message || null,
+    };
   };
+
+  // await supabase.auth.signInWithOtp({
+  //   phone: "+966501234567",
+  // });
+
+  // await supabase.auth.verifyOtp({
+  //   phone: "+966501234567",
+  //   token: otp,
+  //   type: "sms",
+  // });
 
   const signOut = async () => {
     await supabase.auth.signOut();

@@ -191,7 +191,7 @@ export default function DashboardPage() {
           )}
           <Link to="/stock" className="flex items-center gap-1 mt-4 text-sm text-blue-600 hover:text-blue-700 font-medium">
             <Package size={14} />
-            View all stock
+            {t('viewAllStock')}
           </Link>
         </div>
       </div>

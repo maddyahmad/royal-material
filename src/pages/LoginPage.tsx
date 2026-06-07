@@ -42,11 +42,10 @@ export default function LoginPage() {
             <button
               key={lang.code}
               onClick={() => setLanguage(lang.code)}
-              className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${
-                language === lang.code
-                  ? 'bg-white/20 text-white shadow-lg backdrop-blur-sm'
-                  : 'text-white/60 hover:text-white/80 hover:bg-white/10'
-              }`}
+              className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium transition-all ${language === lang.code
+                ? 'bg-white/20 text-white shadow-lg backdrop-blur-sm'
+                : 'text-white/60 hover:text-white/80 hover:bg-white/10'
+                }`}
             >
               <Globe size={14} />
               {lang.label}
@@ -70,11 +69,11 @@ export default function LoginPage() {
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
                 <input
-                  type="email"
+                  type="text"
                   value={email}
                   onChange={e => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-2.5 border border-slate-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                  placeholder="you@example.com"
+                  placeholder="Type..."
                   required
                 />
               </div>
