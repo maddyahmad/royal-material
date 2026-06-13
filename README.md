@@ -196,7 +196,7 @@ Real-time inventory management.
 
 Generate professional invoices for customers.
 
-## Features
+## Features ~ Upcoming
 
 - Auto Invoice Number
 - Company Branding
